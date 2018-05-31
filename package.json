@@ -1,0 +1,28 @@
+{
+  "name": "starred-repositories",
+  "description": "",
+  "version": "1.0.0",
+  "author": "Ben Rogerson <info@benrogerson.com.au>",
+  "dependencies": {
+    "gatsby": "^1.9.247",
+    "gatsby-link": "^1.6.40",
+    "gatsby-plugin-react-helmet": "^2.0.10",
+    "graphiql": "^0.11.11",
+    "react-helmet": "^5.2.0",
+    "react-markdown": "^3.3.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write 'src/**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "gatsby-source-github": "0.0.2",
+    "prettier": "^1.12.0"
+  }
+}
