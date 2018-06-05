@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Rogie ⭐ Repositories',
+    title: '⭐⭐⭐⭐⭐',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -24,7 +24,7 @@ module.exports = {
                   cursor
                   starredAt
                   node {
-                    
+
                     id
                     name
                     nameWithOwner
