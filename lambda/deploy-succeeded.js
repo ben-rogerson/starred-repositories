@@ -32509,12 +32509,10 @@ module.exports = flatten;
 "use strict";
 
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
 const rp = __webpack_require__(226);
 const cheerio = __webpack_require__(370);
 
-const CHECK_INTERVAL = 5000;
+const CHECK_INTERVAL = 10000;
 
 const triggerBuild = () => {
 
@@ -32531,20 +32529,18 @@ const triggerBuild = () => {
   });
 };
 
-exports.handler = _asyncToGenerator(function* () {
+exports.handler = function (event, context, callback) {
 
   let number = 0;
 
   const options = {
     uri: `https://github.com/ben-rogerson?tab=stars`,
-    transform: function (body) {
-      return cheerio.load(body);
-    }
+    transform: body => cheerio.load(body)
   };
 
-  setInterval(function () {
+  setInterval(() => {
 
-    rp(options).then(function ($) {
+    rp(options).then($ => {
 
       const startNumber = $('.UnderlineNav-item.selected .Counter').text().trim();
       console.log(startNumber);
@@ -32553,11 +32549,11 @@ exports.handler = _asyncToGenerator(function* () {
       if (number != 0 && number != startNumber) triggerBuild();
 
       number = startNumber;
-    }).catch(function (err) {
+    }).catch(err => {
       console.log(err.statusCode === 429 ? 'error - github abuse' : err);
     });
   }, CHECK_INTERVAL);
-});
+};
 
 /***/ }),
 /* 226 */

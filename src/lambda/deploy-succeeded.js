@@ -21,7 +21,7 @@ const triggerBuild = () => {
 
 }
 
-exports.handler = async () => {
+exports.handler = function(event, context, callback) {
 
   let number = 0
 
