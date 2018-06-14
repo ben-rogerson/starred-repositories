@@ -34,19 +34,19 @@ exports.handler = async () => {
 
     rp(options)
       .then($ => {
+
         const startNumber = $('.UnderlineNav-item.selected .Counter').text().trim()
         console.log(startNumber)
 
-        if (number != 0 && number != startNumber) {
-          triggerBuild()
-        }
+        // If starred number is different, trigger a build
+        if (number != 0 && number != startNumber) triggerBuild()
+
         number = startNumber
+
       })
       .catch(err => {
-        console.error(
-          (err.statusCode === 429) ?
-            'error - github abuse' :
-            err
+        console.log(
+          (err.statusCode === 429) ? 'error - github abuse' : err
         )
       })
 
