@@ -1,7 +1,7 @@
 const rp = require('request-promise')
 const cheerio = require('cheerio')
 
-const CHECK_INTERVAL = 5000
+const CHECK_INTERVAL = 10000
 
 const triggerBuild = () => {
 
