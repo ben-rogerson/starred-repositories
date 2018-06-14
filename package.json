@@ -6,6 +6,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "gatsby": "^1.9.247",
+    "gatsby-cli": "^1.1.58",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "graphiql": "^0.11.11",
