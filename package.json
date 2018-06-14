@@ -4,12 +4,17 @@
   "version": "1.0.0",
   "author": "Ben Rogerson <info@benrogerson.com.au>",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "graphiql": "^0.11.11",
+    "netlify-lambda": "^0.4.0",
+    "npm": "^6.1.0",
     "react-helmet": "^5.2.0",
-    "react-markdown": "^3.3.2"
+    "react-markdown": "^3.3.2",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2"
   },
   "keywords": [
     "gatsby"
@@ -19,7 +24,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:lambda": "node --inspect ./node_modules/netlify-lambda/bin/cmd.js serve src/lambda",
+    "build:lambda": "netlify-lambda build src/lambda"
   },
   "devDependencies": {
     "gatsby-source-github": "0.0.2",
