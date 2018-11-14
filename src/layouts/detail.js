@@ -12,7 +12,7 @@ const Layout = ({ children, data }) => {
     <Helmet
       title={data.site.siteMetadata.title}
     />
-    <Header siteTitle={data.site.siteMetadata.title} />
+    {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
     <div
       style={{
         margin: '0 auto',

@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
+import TimeAgo from 'react-timeago';
+
 
 class BlogPostTemplate extends Component {
     render() {
 
-        const { starredAgo } = this.props.pathContext;
+        const { starredAt } = this.props.pathContext;
         const data = this.props.pathContext.node;
+        const { createdAt } = data
         const readmeText = data.readme ? data.readme.text
             : (data.readmeLowercase ? data.readmeLowercase.text : null)
-
+        const tags = data.repositoryTopics.edges.map((topic, key) => (
+            <span key={topic.node.url}>{ key != 0 && ', ' }<a href={topic.node.url} target="_blank">{topic.node.topic.name}</a></span>
+        ))
         return (
             <main key={data.id}>
 
@@ -19,11 +24,8 @@ class BlogPostTemplate extends Component {
                     <h1><a href={data.url} target="_blank">{data.name}</a> by {data.owner.login}</h1>
                     <ul>
                         <li>{data.description}</li>
-                        <li>Starred {starredAgo}, added {data.createdAgo}</li>
-                        <li>{data.repositoryTopics.edges.map((topic, key) => (
-                            <span key={topic.node.url}>{ key != 0 && ', ' }<a href={topic.node.url} target="_blank">{topic.node.topic.name}</a></span>
-                        ))}
-                        </li>
+                        <li>Starred <TimeAgo date={starredAt} />, added <TimeAgo date={createdAt} /></li>
+                        { tags && <li>{tags}</li>}
 
                         <li>{bytesToSize(data.diskUsage)} (fix), {data.primaryLanguage && data.primaryLanguage.name + ' lang'}</li>
                     </ul>

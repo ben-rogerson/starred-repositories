@@ -1,29 +1,23 @@
 import React from 'react'
 import Link from 'gatsby-link'
-// import Countdown from 'react-countdown-now';
 import TimeAgo from 'react-timeago';
 
 
 const IndexPage = ({ data }) => (
   <main>
-    <p className="welcome">👋<br/><br/> This page displays a running list of <br/><a href="https://github.com/ben-rogerson?tab=stars">the github repositories I've starred</a>.<br/><br/>It rebuilds daily at 9.00am (ACDT).</p>
-    {/* <Countdown date={Date.now() + 10000} /> */}
+    <p className="welcome">👋<br/><br/> This page displays a running list of <br/><a href="https://github.com/ben-rogerson?tab=stars">the github repositories I've starred</a>.<br/><br/>It rebuilds daily at 9.00am (ACDT).<br/>See the code on <a href="https://github.com/ben-rogerson/starred-repositories">Github</a>.</p>
+
+
     <ul className="list">
       {data.allSitePage.edges.map(repo => {
         const { path, context } = repo.node
-        const { id, name, description, createdAt } = context.node
+        const { id, name, description } = context.node
 
-        const posted = new Date(createdAt);
-        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-
- const postedIso = posted.toISOString();
-        {/* const postedIso = posted.toISOString(); */}
         return (
           <li key={id}>
             <Link to={path.toLowerCase()}>{name}</Link>
             <div className="desc">
-            <TimeAgo className="posted" date={postedIso} /> -
-            {description}
+            <TimeAgo className="posted" date={context.starredAt} /> -{description}
             </div>
           </li>
         )
@@ -45,6 +39,7 @@ export const query = graphql`
         node {
           path
           context {
+            starredAt
             node {
               id
               name
