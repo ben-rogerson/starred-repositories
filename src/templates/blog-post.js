@@ -12,8 +12,8 @@ class BlogPostTemplate extends Component {
         return (
             <main key={data.id}>
 
-                <base href={`https://raw.githubusercontent.com/${data.owner.login}/${data.name}/master/`} target="_blank" />
-            
+                {/* <base href={`https://raw.githubusercontent.com/${data.owner.login}/${data.name}/master/`} target="_blank" /> */}
+
                 <header>
 
                     <h1><a href={data.url} target="_blank">{data.name}</a> by {data.owner.login}</h1>
