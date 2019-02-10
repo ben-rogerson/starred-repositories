@@ -332,14 +332,8 @@ hgroup {
   margin-bottom: 1.45rem;
 }
 ul {
-  margin-left: 1.45rem;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin: 0;
+  padding: 0;
   list-style-position: outside;
   list-style-image: none;
 }
@@ -626,11 +620,15 @@ pre tt:after {
 
 /* Temp css */
 
-
+a {
+  color: rebeccapurple;
+}
+a:hover {
+  border-bottom: .1em solid;
+}
 body {
   font-family: 'Circular';
-  /* font-size: 2.75vw; */
-  /* line-height: 1.7; */
+  padding: 4em;
 }
 
 .list li {
@@ -642,14 +640,15 @@ body {
 .list li a:after {
 content: '';
 position: absolute;
-top: .1em;
-left: -.8em;
-width: 100px;
-height: 1em;
+top: -.2em;
+left: -.75em;
+width: 200px;
+height: 2em;
+font-size: 200%;
 transform: rotate(-20deg);
 z-index: -1;
-color: #FFF;
-background-color: #FFF;
+color: #fbf8ff;
+background-color: #fbf8ff;
 pointer-events: none;
 }
 
@@ -659,9 +658,10 @@ position: absolute;
 top: -.25em;
 margin-left: -1em;
 font-size: 500%;
-transform: scaleX(10);
+transform: scaleX(15);
 opacity: .3;
 z-index: -1;
+pointer-events: none;
 }
 
 .list li a {
@@ -671,6 +671,10 @@ z-index: -1;
   letter-spacing: -.05em;
   line-height: .6;
   position: relative;
+}
+
+.list li a:hover {
+  border-bottom: 0;
 }
 
 .list li:nth-child(odd) {
@@ -688,10 +692,12 @@ z-index: -1;
   font-size: 1.5vw;
   margin-top: .5em;
   margin-left: 4em;
+  position: relative;
   /* background: red; */
 }
 body {
   overflow: hidden;
+  background-color: #fbf8ff;
 }
 header {
 border-bottom: 2px solid #DDD;
@@ -699,7 +705,7 @@ padding-bottom: 2em;
 margin-bottom: 3em;
 }
 main {
-margin-top: 3em;
+/* margin-top: 3em; */
 margin-bottom: 3em;
 }
 
@@ -709,6 +715,9 @@ margin-bottom: 3em;
   font-size: 1.5vw;
   margin-left: 6em;
   line-height: 1.1;
+}
+.welcome .hand {
+  font-size: 500%;
 }
 .posted {
   font-weight: bold;

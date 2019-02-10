@@ -7,11 +7,11 @@
 const path = require('path');
 
 exports.createPages = ({
-    boundActionCreators,
+    actions,
     graphql
 }) => {
 
-    const { createPage } = boundActionCreators;
+    const { createPage } = actions;
 
     return new Promise((resolve, reject) => {
 

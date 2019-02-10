@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-
-import Header from '../components/header'
-import './index.css'
+import { graphql } from 'gatsby'
 
 const Layout = ({ children, data }) => {
 
@@ -12,7 +10,6 @@ const Layout = ({ children, data }) => {
     <Helmet
       title={data.site.siteMetadata.title}
     />
-    {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
     <div
       style={{
         margin: '0 auto',
@@ -21,7 +18,7 @@ const Layout = ({ children, data }) => {
         paddingTop: 0,
       }}
     >
-      {children()}
+      {children}
     </div>
   </div>
 )}
