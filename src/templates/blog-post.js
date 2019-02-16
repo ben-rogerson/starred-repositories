@@ -16,7 +16,7 @@ class BlogPostTemplate extends Component {
         return (
             <div key={data.id}>
                 <div class="header">
-                    <a href="/">Ben's Starred Repositories</a>
+                    <a class="name" href="/">Ben's Starred Repositories</a>
                     <ul><li><a href="https://github.com/ben-rogerson/starred-repositories">Project code ⤴</a></li><li><a href="https://github.com/ben-rogerson?tab=stars">Github stars page ⤴</a></li></ul>
                     </div>
             <main >

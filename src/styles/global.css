@@ -710,17 +710,21 @@ body {
     display: inline-block;
   }
   .header {
-    padding: 1em 2em;
-    flex-direction: column;
+    padding: 1.5em 2em;
+    /* flex-direction: column; */
     line-height: 1.5;
-
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: space-between;
   }
   .header ul {
     flex-direction: column;
+    flex-shrink: 0;
   }
   .header li {
     padding-left: 0;
+  }
+  .header .name {
+    display: inline-block;
   }
 }
 

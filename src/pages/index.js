@@ -6,7 +6,7 @@ import { graphql } from 'gatsby'
 const IndexPage = ({ data }) => (
   <main>
     <div class="header">
-      <div>Ben's Starred Repositories</div>
+      <div class="name">Ben's Starred Repositories</div>
       <ul><li><a href="https://github.com/ben-rogerson/starred-repositories">Project code ⤴</a></li><li><a href="https://github.com/ben-rogerson?tab=stars">Github stars page ⤴</a></li></ul>
     </div>
     <div className="page">
