@@ -7,6 +7,13 @@
     "start": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'"
   },
+  "prettier": {
+    "trailingComma": "es5",
+    "useTabs": false,
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true
+  },
   "author": "Ben Rogerson <info@benrogerson.com.au>",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
