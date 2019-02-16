@@ -14,10 +14,14 @@ class BlogPostTemplate extends Component {
             <span key={topic.node.url}>{ key !== 0 && ', ' }<a href={topic.node.url} target="_blank" rel="noopener noreferrer">{topic.node.topic.name}</a></span>
         ))
         return (
-            <main key={data.id}>
-
+            <div key={data.id}>
+                <div class="header">
+                    <a href="/">Ben's Starred Repositories</a>
+                    <ul><li><a href="https://github.com/ben-rogerson/starred-repositories">Project code ⤴</a></li><li><a href="https://github.com/ben-rogerson?tab=stars">Github stars page ⤴</a></li></ul>
+                    </div>
+            <main >
+            <div className="page">
                 <header>
-                    <a href="/">Home</a><br/><br/>
                     <h2><a href={data.url} target="_blank" rel="noopener noreferrer">{data.name}</a> by {data.owner.login}</h2>
                     <ul>
                         <li>{data.description}</li>
@@ -32,8 +36,9 @@ class BlogPostTemplate extends Component {
                     return image.charAt(0) === '/' ? image.substring(1, image.length) : image
                 }} source={readmeText} escapeHtml={false} />)}
                 <p><br /><br /><a href={data.url} target="_blank" rel="noopener noreferrer">{data.url}</a> 👉</p>
-
+                </div>
             </main>
+            </div>
         )
     }
 }
