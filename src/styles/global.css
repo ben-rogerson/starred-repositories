@@ -332,10 +332,10 @@ hgroup {
   margin-bottom: 1.45rem;
 }
 ul {
-  margin: 0 0 0 1.5em;
+  margin: 0;
   padding: 0;
   list-style-position: outside;
-  list-style-image: none;
+  list-style: none;
 }
 ol {
   margin-left: 1.45rem;
@@ -512,7 +512,18 @@ ol li {
   padding-left: 0;
 }
 ul li {
-  padding-left: 0;
+  padding-left: 2em;
+  /* text-indent: -1em; */
+  position: relative;
+}
+ul li:before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: rgba(255,255,255,.2);
+}
+ul.list li:before {
+  display: none;
 }
 li > ol {
   margin-left: 1.45rem;
@@ -606,6 +617,9 @@ tt:after {
   letter-spacing: -0.2em;
   content: " ";
 }
+pre {
+  background: hsla(0, 0%, 0%, 0.35);
+}
 pre code:before,
 pre code:after,
 pre tt:before,
@@ -633,13 +647,18 @@ body {
   padding: 4em;
 }
 
+.list {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
 .list li {
   list-style: none;
   padding-left: 1em;
-  margin-top: 7em;
+  margin-top: 6vw;
 }
 
-.list li a:before {
+.list li:nth-child(even) a:before {
   content: '';
   position: absolute;
   opacity: .3;
@@ -694,14 +713,7 @@ body {
   -webkit-text-stroke: .02em #ff388b;
 }
 
-/* .list a {
-  transition: filter .55s;
-  will-change: filter;
-} */
-
 a:hover {
-  /* opacity: .2; */
-  /* color: #FFF; */
   filter: contrast(10);
 }
 
@@ -716,12 +728,25 @@ a:hover {
 }
 body {
   overflow: hidden;
-  background-color: #16082f;
+  background: #16082f;
 }
+
+body:after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(-134deg, #16082f, #1a3742);
+  z-index: -1;
+  pointer-events: none;
+}
+
 header {
 border-bottom: 2px solid rgba(255,255,255,.08);
-padding-bottom: 4em;
-margin-bottom: 4em;
+padding-bottom: 2em;
+margin-bottom: 3em;
 }
 
 main {
