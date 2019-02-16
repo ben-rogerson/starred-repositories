@@ -668,8 +668,11 @@ body {
     padding: 2em;
   }
 }
-
-
+@media only screen and (min-width: 2000px) {
+  .page {
+    max-width: 1200px;
+  }
+}
 
 .header {
   font-weight: bold;
@@ -677,10 +680,12 @@ body {
   left: 0;
   right: 0;
   top: 0;
-  font-size: 1.5vw;
   display: flex;
   justify-content: space-between;
   padding: 2em 4em;
+}
+.header * {
+  font-size: 1.5vw;
 }
 .header ul {
   display: flex;
@@ -696,8 +701,13 @@ body {
   display: block;
 }
 @media only screen and (max-width: 1000px) {
+  .header * {
+    font-size: initial;
+  }
+  .header a {
+    display: inline-block;
+  }
   .header {
-    font-size: 5vw;
     padding: 1em 2em;
     flex-direction: column;
     line-height: 1.5;
@@ -717,7 +727,7 @@ body {
 
 .list li {
   list-style: none;
-  padding-left: 1em;
+  padding-left: 0;
   margin-top: 6vw;
 }
 
@@ -746,6 +756,10 @@ body {
   letter-spacing: -.05em;
   line-height: .6;
   position: relative;
+}
+
+.list li a:hover {
+  text-shadow: .04em .04em 0 rgba(0,0,0,.2), 0 0 1em currentColor;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -777,7 +791,7 @@ body {
   .list li:nth-child(1) a,
   .list li:nth-child(2) a,
   .list li:nth-child(3) a {
-    font-size: 13vw;
+    font-size: 10vw;
     letter-spacing: -.14em;
   }
   .list li:nth-child(1) .desc,
@@ -785,8 +799,6 @@ body {
   .list li:nth-child(3) .desc {
     margin-top: 1.7em;
   }
-
-
   .list li:nth-child(1),
   .list li:nth-child(2),
   .list li:nth-child(3) {
@@ -802,10 +814,10 @@ body {
 }
 @media only screen and (min-width: 1000px) {
 
-.list li:nth-child(1) a,
-.list li:nth-child(3) a {
-  -webkit-text-stroke: .02em #b9ffff;
-}
+  .list li:nth-child(1) a,
+  .list li:nth-child(3) a {
+    -webkit-text-stroke: .02em #b9ffff;
+  }
 
 }
 .list li:nth-child(even) {
@@ -814,13 +826,12 @@ body {
 }
 
 @media only screen and (min-width: 1000px) {
-
-.list li:nth-child(2) a {
-  -webkit-text-stroke: .02em #ff388b;
+  .list li:nth-child(2) a {
+    -webkit-text-stroke: .02em #ff388b;
+  }
 }
-}
-a:hover {
-  filter: contrast(10);
+.list a:hover {
+  filter: contrast(1.25);
 }
 
 .list .desc {
@@ -864,22 +875,18 @@ margin-bottom: 3em;
 }
 
 main {
-/* margin-top: 3em; */
 margin-bottom: 3em;
 }
 
 .welcome {
-  margin-top: 2em;
-  margin-left: 3em;
   max-width: 40vw;
   font-size: 1.5vw;
   line-height: 1.1;
-  margin-bottom: 3.5em;
+  margin-bottom: 2.5em;
 }
 @media only screen and (max-width: 1000px) {
   .welcome {
     font-size: 4vw;
-    margin-left: 1em;
     max-width: 100%;
   }
 }
