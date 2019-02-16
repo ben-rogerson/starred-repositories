@@ -17,7 +17,7 @@ class BlogPostTemplate extends Component {
             <main key={data.id}>
 
                 <header>
-
+                    <a href="/">Home</a><br/><br/>
                     <h1><a href={data.url} target="_blank" rel="noopener noreferrer">{data.name}</a> by {data.owner.login}</h1>
                     <ul>
                         <li>{data.description}</li>
@@ -32,6 +32,8 @@ class BlogPostTemplate extends Component {
                 {readmeText && (<ReactMarkdown transformImageUri={image => {
                     return image.charAt(0) === '/' ? image.substring(1, image.length) : image
                 }} source={readmeText} escapeHtml={false} />)}
+
+<p><br /><br /><a href={data.url} target="_blank" rel="noopener noreferrer">{data.url}</a> 👉</p>
 
             </main>
         )
