@@ -76,7 +76,7 @@ exports.createPages = ({
                 result.data.allGithubViewer.edges.forEach(({ node }) => {
 
                     node.starredRepositories.edges.forEach(repo => {
-                        const path = repo.node.name;
+                        const path = repo.node.name.replace('.','-').toLowerCase();
                         createPage({
                             path,
                             component: blogPostTemplate,
