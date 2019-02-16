@@ -5,8 +5,14 @@ import { graphql } from 'gatsby'
 
 const IndexPage = ({ data }) => (
   <main>
-    <p className="welcome">Below is a running list of <br/><a href="https://github.com/ben-rogerson?tab=stars">the github repositories I've starred</a>.<br/><br/>It rebuilds daily at 9.00am (ACDT).<br/>See the code on <a href="https://github.com/ben-rogerson/starred-repositories">Github</a>.</p>
-
+    <div className="welcome">
+      <p>Starred Repositories</p>
+      <p>Below is a list of <a href="https://github.com/ben-rogerson?tab=stars">the github repositories I've starred</a></p>
+      <ul>
+      <li>This page rebuilds daily at 9.00am (ACDT)</li>
+      <li>View the code on <a href="https://github.com/ben-rogerson/starred-repositories">Github</a></li>
+      </ul>
+  </div>
     <ul className="list">
       {data.allSitePage.edges.filter(repo => (repo.node.context && repo.node.context.node)).map(repo => {
         const { path, context } = repo.node

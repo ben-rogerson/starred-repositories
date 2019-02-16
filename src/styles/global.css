@@ -188,6 +188,7 @@ html {
   box-sizing: border-box;
   overflow-y: scroll;
 }
+
 * {
   box-sizing: inherit;
 }
@@ -626,11 +627,13 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 1000px) {
   html {
-    font-size: 100%;
+    font-size: 85%;
   }
 }
+
+
 
 /* Temp css */
 
@@ -646,6 +649,12 @@ body {
   font-family: 'Circular';
   padding: 4em;
 }
+@media only screen and (max-width: 1000px) {
+  body {
+    padding: 2em;
+  }
+}
+
 
 .list {
   user-select: none;
@@ -657,6 +666,7 @@ body {
   padding-left: 1em;
   margin-top: 6vw;
 }
+
 
 .list li:nth-child(even) a:before {
   content: '';
@@ -684,13 +694,33 @@ body {
   position: relative;
 }
 
-.list li:nth-child(1) a,
-.list li:nth-child(2) a,
-.list li:nth-child(3) a {
-  font-size: 10vw;
-  letter-spacing: -.14em;
+@media only screen and (max-width: 1000px) {
+  .list li a {
+    font-size: 10vw;
+  }
 }
 
+
+@media only screen and (min-width: 1000px) {
+  .list li:nth-child(1) a,
+  .list li:nth-child(2) a,
+  .list li:nth-child(3) a {
+    font-size: 13vw;
+    letter-spacing: -.14em;
+  }
+  .list li:nth-child(1) .desc,
+  .list li:nth-child(2) .desc,
+  .list li:nth-child(3) .desc {
+    margin-top: 1.7em;
+  }
+
+
+  .list li:nth-child(1),
+  .list li:nth-child(2),
+  .list li:nth-child(3) {
+    margin-top: 3vw;
+  }
+}
 .list li a:hover {
   border-bottom: 0;
 }
@@ -698,21 +728,25 @@ body {
 .list li:nth-child(odd) {
   color: #b472f5;
 }
+@media only screen and (min-width: 1000px) {
 
 .list li:nth-child(1) a,
 .list li:nth-child(3) a {
   -webkit-text-stroke: .02em #b9ffff;
 }
 
+}
 .list li:nth-child(even) {
   color: #77ceb9;
   transform: translateX(2em);
 }
 
+@media only screen and (min-width: 1000px) {
+
 .list li:nth-child(2) a {
   -webkit-text-stroke: .02em #ff388b;
 }
-
+}
 a:hover {
   filter: contrast(10);
 }
@@ -726,6 +760,14 @@ a:hover {
   pointer-events: none;
   position: relative;
 }
+
+@media only screen and (max-width: 1000px) {
+  .list .desc {
+    font-size: 4vw;
+    max-width: 60vw;
+  }
+}
+
 body {
   overflow: hidden;
   background: #16082f;
@@ -757,13 +799,18 @@ max-width: 888px;
 
 .welcome {
   margin-top: 2em;
+  margin-left: 3em;
   max-width: 40vw;
   font-size: 1.5vw;
-  margin-left: 3em;
   line-height: 1.1;
+  margin-bottom: 3.5em;
 }
-.welcome .hand {
-  font-size: 200%;
+@media only screen and (max-width: 1000px) {
+  .welcome {
+    font-size: 4vw;
+    margin-left: 1em;
+    max-width: 100%;
+  }
 }
 .posted {
   font-weight: bold;
