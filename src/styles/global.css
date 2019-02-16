@@ -635,8 +635,6 @@ pre tt:after {
 
 
 
-/* Temp css */
-
 a {
   color: #b472f5;
 }
@@ -711,7 +709,6 @@ body {
   }
   .header {
     padding: 1.5em 2em;
-    /* flex-direction: column; */
     line-height: 1.5;
     align-items: flex-start;
     justify-content: space-between;

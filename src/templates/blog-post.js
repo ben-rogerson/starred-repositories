@@ -4,7 +4,6 @@ import TimeAgo from 'react-timeago';
 
 class BlogPostTemplate extends Component {
     render() {
-
         const { starredAt } = this.props.pageContext;
         const data = this.props.pageContext.node;
         const { createdAt } = data
