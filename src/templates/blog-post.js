@@ -20,7 +20,7 @@ class BlogPostTemplate extends Component {
                     <ul><li><a href="https://github.com/ben-rogerson/starred-repositories">Project code ⤴</a></li><li><a href="https://github.com/ben-rogerson?tab=stars">Github stars page ⤴</a></li></ul>
                     </div>
             <main >
-            <div className="page">
+            <div className="page detail">
                 <header>
                     <h2><a href={data.url} target="_blank" rel="noopener noreferrer">{data.name}</a> by {data.owner.login}</h2>
                     <ul>

@@ -661,6 +661,8 @@ body {
 }
 .page {
   padding: 4em;
+}
+.page.detail {
   max-width: 888px;
 }
 @media only screen and (max-width: 1000px) {
@@ -669,8 +671,8 @@ body {
   }
 }
 @media only screen and (min-width: 2000px) {
-  .page {
-    max-width: 1200px;
+  .page.detail {
+    max-width: 888px;
   }
 }
 
@@ -711,6 +713,8 @@ body {
     padding: 1em 2em;
     flex-direction: column;
     line-height: 1.5;
+
+    justify-content: center;
   }
   .header ul {
     flex-direction: column;
