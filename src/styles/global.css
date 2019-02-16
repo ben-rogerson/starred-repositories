@@ -747,24 +747,33 @@ body {
   line-height: .6;
   position: relative;
 }
-.list li a:after {
-  content: '';
-  position: absolute;
-  background: transparent;
-  top: -1em;
-  right: -1em;
-  bottom: -1em;
-  left: -1em;
-}
 
 @media only screen and (max-width: 1000px) {
   .list li a {
     font-size: 10vw;
   }
+
 }
 
 
 @media only screen and (min-width: 1000px) {
+  .list li a:after {
+    content: '';
+    position: absolute;
+    background: transparent;
+    top: -.85em;
+    right: -.85em;
+    bottom: -.85em;
+    left: -.85em;
+  }
+  .list li:nth-child(1) a:after,
+  .list li:nth-child(2) a:after,
+  .list li:nth-child(3) a:after {
+    top: -0em;
+    right: -1em;
+    bottom: 0em;
+    left: -1em;
+  }
   .list li:nth-child(1) a,
   .list li:nth-child(2) a,
   .list li:nth-child(3) a {
