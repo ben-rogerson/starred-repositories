@@ -1,62 +1,109 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import TimeAgo from 'react-timeago';
+import TimeAgo from 'react-timeago'
 import { graphql } from 'gatsby'
+import styled from '@emotion/styled/macro'
+import { Header } from './../components'
+import { getRepos, getUniqueTagsFromRepos } from './../utils'
 
-const IndexPage = ({ data }) => (
-  <main>
-    <div class="header">
-      <div class="name">Ben's Starred Repositories</div>
-      <ul><li><a href="https://github.com/ben-rogerson/starred-repositories">Project code ⤴</a></li><li><a href="https://github.com/ben-rogerson?tab=stars">Github stars page ⤴</a></li></ul>
-    </div>
-    <div className="page">
-    <div className="welcome">
-      Showing last 100 starred - Rebuilds daily at 9:00am (ACDT)
-    </div>
-    <ul className="list">
-      {data.allSitePage.edges.filter(repo => (repo.node.context && repo.node.context.node)).map(repo => {
-        const { path, context } = repo.node
-        const { id, name, description } = context.node
+const Language = styled.div`
+    margin-top: 0.75em;
+    font-size: 0.85em;
+    letter-spacing: 0.03em;
+    font-weight: bold;
+    text-transform: uppercase;
+`
 
-        return (
-          <li key={id}>
-            <Link to={path.toLowerCase()}>{name}</Link>
-            <div className="desc">
-            <TimeAgo className="posted" date={context.starredAt} /> -{description}
+const Topics = styled.div`
+    a {
+        margin-right: 10px;
+    }
+`
+
+const IndexPage = ({ data }) => {
+    const repos = getRepos(data)
+    const topics = getUniqueTagsFromRepos(repos)
+    return (
+        <main>
+            <Header />
+            <div className="page">
+                <Topics>
+                    {topics.map((item, index) => (
+                        <a key={index} href={`topic/${item}`}>
+                            {item}
+                        </a>
+                    ))}
+                </Topics>
+                <div className="welcome">
+                    Showing last 100 starred - Rebuilds daily at 9:00am (ACDT)
+                </div>
+                <ul className="list">
+                    {repos.map(repo => {
+                        const { path, context } = repo.node
+                        const {
+                            id,
+                            name,
+                            description,
+                            primaryLanguage,
+                        } = context.node
+                        return (
+                            <li key={id}>
+                                <Link to={path.toLowerCase()}>{name}</Link>
+                                <div className="desc">
+                                    <TimeAgo
+                                        className="posted"
+                                        date={context.starredAt}
+                                    />{' '}
+                                    - {description}
+                                    {primaryLanguage && (
+                                        <Language theme={primaryLanguage.color}>
+                                            {primaryLanguage.name}
+                                        </Language>
+                                    )}
+                                </div>
+                            </li>
+                        )
+                    })}
+                </ul>
             </div>
-          </li>
-        )
-      })}
-    </ul>
-    </div>
-  </main>
-)
+        </main>
+    )
+}
 
 export default IndexPage
 
 export const query = graphql`
-  query detailPagesQuery {
-    allSitePage(
-      sort: {fields: [context___starredAt], order: DESC }
-    ) {
-      totalCount
-      edges {
-        node {
-          path
-          context {
-            starredAt
-            node {
-              id
-              name
-              description
-              createdAt
+    query detailPagesQuery {
+        allSitePage(sort: { fields: [context___starredAt], order: DESC }) {
+            totalCount
+            edges {
+                node {
+                    path
+                    context {
+                        starredAt
+                        node {
+                            id
+                            name
+                            description
+                            createdAt
+                            primaryLanguage {
+                                name
+                                color
+                            }
+                            repositoryTopics {
+                                edges {
+                                    node {
+                                        url
+                                        topic {
+                                            name
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
 `
-
-
-

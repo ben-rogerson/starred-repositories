@@ -5,6 +5,7 @@
   "scripts": {
     "build": "gatsby build",
     "start": "gatsby develop",
+    "debug": "node --inspect node_modules/.bin/gatsby develop",
     "format": "prettier --write 'src/**/*.js'"
   },
   "prettier": {
@@ -14,23 +15,26 @@
     "semi": false,
     "singleQuote": true
   },
-  "author": "Ben Rogerson <info@benrogerson.com.au>",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "gatsby": "^2.0.118",
-    "gatsby-cli": "^2.4.9",
-    "gatsby-link": "^2.0.10",
-    "gatsby-plugin-react-helmet": "^3.0.6",
-    "graphiql": "^0.12.0",
-    "npm": "^6.7.0",
-    "react": "^16.8.1",
-    "react-countdown-now": "^2.1.0",
-    "react-dom": "^16.8.1",
-    "react-helmet": "^5.2.0",
-    "react-markdown": "^4.0.6",
-    "react-timeago": "^4.3.0",
+    "@emotion/core": "^10.0.14",
+    "@emotion/styled": "^10.0.14",
+    "cheerio": "^1.0.0-rc.3",
+    "gatsby": "^2.13.27",
+    "gatsby-cli": "^2.7.15",
+    "gatsby-link": "^2.2.2",
+    "gatsby-plugin-emotion": "^4.1.2",
+    "gatsby-plugin-react-helmet": "^3.1.2",
+    "graphiql": "^0.13.2",
+    "graphql": "^14.4.2",
+    "npm": "^6.10.1",
+    "react": "^16.8.6",
+    "react-countdown-now": "^2.1.1",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "react-markdown": "^4.1.0",
+    "react-timeago": "^4.4.0",
     "request": "^2.88.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.4"
   },
   "keywords": [
     "gatsby"
@@ -38,6 +42,6 @@
   "license": "MIT",
   "devDependencies": {
     "gatsby-source-github": "0.0.2",
-    "prettier": "^1.16.4"
+    "prettier": "^1.18.2"
   }
 }
