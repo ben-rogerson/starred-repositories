@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'gatsby-link'
 import TimeAgo from 'react-timeago'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled/macro'
-import { Header } from './../components'
-import { getRepos, getUniqueTagsFromRepos } from './../utils'
+import { Header, Topics } from './../components'
+import { getRepos } from './../utils'
 
 const Language = styled.div`
     margin-top: 0.75em;
@@ -13,30 +13,44 @@ const Language = styled.div`
     font-weight: bold;
     text-transform: uppercase;
 `
-
-const Topics = styled.div`
-    a {
-        margin-right: 10px;
+const ToggleCloud = styled.button`
+    display: inline-block;
+    background-color: transparent;
+    border: 0;
+    color: inherit;
+    padding: 0;
+    margin: 0 0 0 1em;
+    &:hover,
+    &:focus {
+        color: #fff;
+        cursor: pointer;
+        outline: 0;
     }
 `
 
+const Welcome = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`
+
 const IndexPage = ({ data }) => {
+    const [isOpen, setIsOpen] = useState(false)
     const repos = getRepos(data)
-    const topics = getUniqueTagsFromRepos(repos)
     return (
         <main>
             <Header />
             <div className="page">
-                <Topics>
-                    {topics.map((item, index) => (
-                        <a key={index} href={`topic/${item}`}>
-                            {item}
-                        </a>
-                    ))}
-                </Topics>
-                <div className="welcome">
-                    Showing last 100 starred - Rebuilds daily at 9:00am (ACDT)
-                </div>
+                <Welcome className="welcome">
+                    Showing last 100 starred - Rebuilds daily at 9:00am (ACDT){' '}
+                    <ToggleCloud
+                        onClick={() => {
+                            setIsOpen(!isOpen)
+                        }}
+                    >
+                        Toggle tagcloud
+                    </ToggleCloud>
+                </Welcome>
+                <Topics {...{ repos, isOpen }} />
                 <ul className="list">
                     {repos.map(repo => {
                         const { path, context } = repo.node
